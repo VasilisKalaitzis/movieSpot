@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .App-logo {
@@ -23,6 +28,11 @@
   color: #61dafb;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -30,4 +40,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+::-webkit-scrollbar {
+  display: none;
 }

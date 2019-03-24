@@ -1,0 +1,27 @@
+.movie-item {
+  display: -ms-inline-grid;
+  display: inline-grid;
+  padding: 10px;
+  width: 350px;
+  margin: 10px;
+  text-align: center;
+  -webkit-box-shadow: 0px 20px 30px -20px #40514e;
+          box-shadow: 0px 20px 30px -20px #40514e;
+}
+
+.movie-item .sm-hide {
+  width: 135px;
+}
+
+@media screen and (max-width: 800px) {
+  .movie-item {
+    width: 225px;
+    float: none;
+    padding: 10px 0;
+    margin: 10px 0;
+  }
+  .movie-item .sm-hide {
+    display: none;
+  }
+}
+/*# sourceMappingURL=MainContent.css.map */

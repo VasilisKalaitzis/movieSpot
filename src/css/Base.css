@@ -1,0 +1,104 @@
+.color-pallete1 {
+  color: #40514e;
+  background-color: #f4fefa;
+}
+
+.color-pallete2 {
+  color: #40514e;
+  background-color: #30e3ca;
+}
+
+.color-pallete3 {
+  color: #f4fefa;
+  background-color: #11999e;
+}
+
+.color-pallete4 {
+  color: #f4fefa;
+  background-color: #40514e;
+}
+
+.gradient-background {
+  background-image: -webkit-gradient(linear, left top, right top, from(#40514e), to(#f4fefa));
+  background-image: linear-gradient(to right, #40514e, #f4fefa);
+}
+
+.gradient-background-active {
+  background-image: -webkit-gradient(linear, right top, left top, from(#40514e), to(#f4fefa));
+  background-image: linear-gradient(to left, #40514e, #f4fefa);
+}
+
+.gradient-text {
+  text-transform: uppercase;
+  background: -webkit-gradient(linear, left top, right top, from(#f4fefa), to(#40514e));
+  background: linear-gradient(to right, #f4fefa 0%, #40514e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-active {
+  text-transform: uppercase;
+  background: -webkit-gradient(linear, right top, left top, from(#f4fefa), to(#40514e));
+  background: linear-gradient(to left, #f4fefa 0%, #40514e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.transparent-background {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.flexcontrainer-fit {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(100px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.flexcontrainer-fill {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(100px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.flexcontrainer-block {
+  padding: 15px 10px;
+  display: inline-block;
+}
+
+.container {
+  padding: 15px;
+}
+
+.navbar {
+  height: 50px;
+  padding: 0 50px;
+}
+
+.underline-transition {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline-transition:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.underline-transition:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+/*# sourceMappingURL=Base.css.map */

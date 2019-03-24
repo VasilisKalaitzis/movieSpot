@@ -1,0 +1,164 @@
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+/* TRANSITION GROUP 1 
+   simple fade */
+.fade-enter {
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.fade-enter-active {
+  opacity: 0.9;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
+/* TRANSITION GROUP 2 
+   slide from left */
+.slide-fade-left-enter {
+  opacity: 0;
+  -webkit-transform: translateX(600px);
+          transform: translateX(600px);
+}
+
+.slide-fade-left-enter-active {
+  opacity: 0.9;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
+.slide-fade-left-exit {
+  opacity: 0.9;
+}
+
+.slide-fade-left-exit-active {
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
+/* slide from right */
+.slide-fade-right-enter {
+  opacity: 0;
+  -webkit-transform: translateX(-600px);
+          transform: translateX(-600px);
+}
+
+.slide-fade-right-enter-active {
+  opacity: 0.9;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
+.slide-fade-right-exit {
+  opacity: 0.9;
+}
+
+.slide-fade-right-exit-active {
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
+/* TRANSITION GROUP 3
+   slide from left normally */
+.slide-left-enter {
+  opacity: 0;
+  -webkit-transform: translateX(-600px);
+          transform: translateX(-600px);
+}
+
+.slide-left-enter-active {
+  opacity: 0.9;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: opacity 500ms, -webkit-transform 500ms;
+  transition: opacity 500ms, -webkit-transform 500ms;
+  transition: opacity 500ms, transform 500ms;
+  transition: opacity 500ms, transform 500ms, -webkit-transform 500ms;
+}
+
+.slide-left-exit {
+  opacity: 0.9;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.slide-left-exit-active {
+  opacity: 0;
+  -webkit-transform: translateX(-600px);
+          transform: translateX(-600px);
+  -webkit-transition: opacity 500ms, -webkit-transform 500ms;
+  transition: opacity 500ms, -webkit-transform 500ms;
+  transition: opacity 500ms, transform 500ms;
+  transition: opacity 500ms, transform 500ms, -webkit-transform 500ms;
+}
+
+/* slide from right normally */
+.slide-right-enter {
+  opacity: 0;
+  -webkit-transform: translateX(600px);
+          transform: translateX(600px);
+}
+
+.slide-right-enter-active {
+  opacity: 0.9;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: opacity 500ms, -webkit-transform 500ms;
+  transition: opacity 500ms, -webkit-transform 500ms;
+  transition: opacity 500ms, transform 500ms;
+  transition: opacity 500ms, transform 500ms, -webkit-transform 500ms;
+}
+
+.slide-right-exit {
+  opacity: 0.9;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.slide-right-exit-active {
+  opacity: 0;
+  -webkit-transform: translateX(600px);
+          transform: translateX(600px);
+  -webkit-transition: opacity 500ms, -webkit-transform 500ms;
+  transition: opacity 500ms, -webkit-transform 500ms;
+  transition: opacity 500ms, transform 500ms;
+  transition: opacity 500ms, transform 500ms, -webkit-transform 500ms;
+}
+/*# sourceMappingURL=transitions.css.map */

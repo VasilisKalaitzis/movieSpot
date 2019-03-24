@@ -1,0 +1,110 @@
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+$opacityOut: 0;
+$opacityIn: 0.9;
+$cubicBezier: 1, 0.5, 0.8, 1;
+$cubicBezierReverse: 0.8, 1, 1, 0.5;
+
+/* TRANSITION GROUP 1 
+   simple fade */
+.fade-enter {
+  opacity: $opacityOut;
+  transform: scale(0.9);
+}
+.fade-enter-active {
+  opacity: $opacityIn;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: $opacityOut;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* TRANSITION GROUP 2 
+   slide from left */
+.slide-fade-left-enter {
+  opacity: $opacityOut;
+  transform: translateX(600px);
+}
+.slide-fade-left-enter-active {
+  opacity: $opacityIn;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+  // transition: all 1s ease;
+}
+.slide-fade-left-exit {
+  opacity: $opacityIn;
+}
+.slide-fade-left-exit-active {
+  opacity: $opacityOut;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* slide from right */
+.slide-fade-right-enter {
+  opacity: $opacityOut;
+  transform: translateX(-600px);
+}
+.slide-fade-right-enter-active {
+  opacity: $opacityIn;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+  // transition: all 1s ease;
+}
+.slide-fade-right-exit {
+  opacity: $opacityIn;
+}
+.slide-fade-right-exit-active {
+  opacity: $opacityOut;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* TRANSITION GROUP 3
+   slide from left normally */
+.slide-left-enter {
+  opacity: $opacityOut;
+  transform: translateX(-600px);
+}
+.slide-left-enter-active {
+  opacity: $opacityIn;
+  transform: translateX(0);
+  transition: opacity 500ms, transform 500ms;
+  // transition: all 1s ease;
+}
+.slide-left-exit {
+  opacity: $opacityIn;
+  transform: translateX(0);
+}
+.slide-left-exit-active {
+  opacity: $opacityOut;
+  transform: translateX(-600px);
+  transition: opacity 500ms, transform 500ms;
+}
+
+/* slide from right normally */
+.slide-right-enter {
+  opacity: $opacityOut;
+  transform: translateX(600px);
+}
+.slide-right-enter-active {
+  opacity: $opacityIn;
+  transform: translateX(0);
+  transition: opacity 500ms, transform 500ms;
+  // transition: all 1s ease;
+}
+.slide-right-exit {
+  opacity: $opacityIn;
+  transform: translateX(0);
+}
+.slide-right-exit-active {
+  opacity: $opacityOut;
+  transform: translateX(600px);
+  transition: opacity 500ms, transform 500ms;
+}

@@ -1,0 +1,46 @@
+.cubic-container {
+  pointer-events: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  min-height: 200px;
+}
+.cubic {
+  position: fixed;
+}
+.cubic-body {
+  background: whitesmoke;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  /* box-shadow: 0 0 50px 20px black; */
+  box-shadow: 0 0 30px 17px white;
+}
+.cubic-body:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: whitesmoke;
+  border-bottom: 0;
+  margin-left: -20px;
+  margin-bottom: -10px;
+}
+.cubic-left-wing {
+  margin-left: auto;
+  background: whitesmoke;
+  border-radius: 50%;
+  height: 10px;
+  width: 35px;
+  transform: rotate(30deg);
+}
+.cubic-right-wing {
+  margin-right: auto;
+  background: whitesmoke;
+  border-radius: 50%;
+  height: 10px;
+  width: 35px;
+  transform: rotate(-30deg);
+}
