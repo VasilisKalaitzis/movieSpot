@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchMovieList } from "../../actions/movieActions";
+import {
+  fetchMovieList,
+  changePageMovieList
+} from "../../actions/movieActions";
 
 import MovieListItem from "./MovieListItem";
-import Pagination from "./Pagination";
-
+import Pagination from "rc-pagination";
 import "../../css/Pagination.css";
 
 class MovieList extends Component {
@@ -13,51 +15,56 @@ class MovieList extends Component {
     this.fethMovies();
   }
 
+  componentDidUpdate() {}
+
   fethMovies() {
     //the action checks for cached data before pulling from the server
-    this.props.fetchMovieList(this.props.url, this.props.page);
+    this.props.fetchMovieList(this.props.url, this.props.currentPage);
   }
-  handlePageChange() {
-    debugger;
-  }
+  handlePageChange = page => {
+    this.props.changePageMovieList(this.props.url, page - 1);
+  };
 
   render() {
-    // const styles = {};
-    debugger;
     return (
-      <div className="container">
+      <React.Fragment>
         {this.props.movieList.map((movieItem, i) => (
-          <MovieListItem key={"movieItem_" + i} data={movieItem} />
+          <MovieListItem
+            key={"movieItem_" + i}
+            data={movieItem}
+            scope="normal"
+          />
         ))}
         <Pagination
-          activePage={this.props.page}
-          itemsCountPerPage={this.props.itemPerPage}
-          totalItemsCount={1000}
-          pageRangeDisplayed={5}
-          onChange={this.handlePageChange.bind(this)}
+          onChange={this.handlePageChange}
+          current={this.props.currentPage + 1}
+          total={41500}
+          pageSize={25}
+          className={"pagination"}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }
 MovieList.defaultProps = {
   url: "",
-  page: 0,
+  currentPage: 0,
   movieList: [],
   itemPerPage: 25
 };
 
 MovieList.propTypes = {
   url: PropTypes.string,
-  page: PropTypes.number,
+  currentPage: PropTypes.number,
   movieList: PropTypes.array
 };
 
 const mapStateToProps = state => ({
-  movieList: state.movieReducer.movieList
+  movieList: state.movieReducer.movieList,
+  currentPage: state.movieReducer.currentPage
 });
 
 export default connect(
   mapStateToProps,
-  { fetchMovieList }
+  { fetchMovieList, changePageMovieList }
 )(MovieList);

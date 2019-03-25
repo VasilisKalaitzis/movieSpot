@@ -1,4 +1,5 @@
-.movie-item {
+.movie-item-normal,
+.movie-item-simple {
   display: -ms-inline-grid;
   display: inline-grid;
   padding: 10px;
@@ -9,19 +10,104 @@
           box-shadow: 0px 20px 30px -20px #40514e;
 }
 
-.movie-item .sm-hide {
+.movie-item-normal .sm-hide,
+.movie-item-simple .sm-hide {
   width: 135px;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 800px) {
-  .movie-item {
+  .movie-item-normal,
+  .movie-item-simple {
     width: 210px;
     float: none;
     padding: 10px 0;
     margin: 10px 0;
   }
-  .movie-item .sm-hide {
+  .movie-item-normal .sm-hide,
+  .movie-item-simple .sm-hide {
     display: none;
   }
+}
+
+.content-details {
+  max-width: 900px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 10 0px;
+}
+
+.movie-item-detailed {
+  display: -ms-inline-grid;
+  display: inline-grid;
+  padding: 15px;
+  min-width: 350px;
+  margin: 15px;
+  text-align: left;
+  -webkit-box-shadow: 0px 20px 30px -20px #40514e;
+          box-shadow: 0px 20px 30px -20px #40514e;
+}
+
+@media screen and (max-width: 800px) {
+  .movie-item-detailed {
+    min-width: 210px;
+    float: none;
+    padding: 10px 0;
+    margin: 10px 0;
+  }
+  .movie-item-detailed .sm-hide {
+    display: none;
+  }
+  .movie-item-detailed .content-details {
+    max-width: 250px;
+  }
+}
+
+.beau-button {
+  text-align: center;
+  background: #30e3ca;
+  vertical-align: middle;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 60px;
+  font-size: 1.6em;
+  padding: 0 63px;
+  cursor: pointer;
+  -webkit-transition: 800ms ease all;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+.beau-button:hover {
+  background: #fff;
+  color: #30e3ca;
+}
+
+.beau-button:before,
+.beau-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #30e3ca;
+  -webkit-transition: 400ms ease all;
+  transition: 400ms ease all;
+}
+
+.beau-button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+.beau-button:hover:before,
+.beau-button:hover:after {
+  width: 100%;
+  -webkit-transition: 800ms ease all;
+  transition: 800ms ease all;
 }
 /*# sourceMappingURL=MainContent.css.map */

@@ -25,7 +25,7 @@ export default function(state = initialState, action) {
           break;
         }
         case "toggle": {
-          state.layout[action.payload.property] == 1
+          state.layout[action.payload.property] === 1
             ? (newValue = 0)
             : (newValue = 1);
           break;
