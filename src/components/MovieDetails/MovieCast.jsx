@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchMovieCast } from "../../actions/movieActions";
 
 import imageAnavailable from "../../static_images/image_not_found.png";
 
 class MovieDetails extends Component {
-  componentWillMount() {
-    this.props.fetchMovieCast(this.props.url, this.props.movieId);
-  }
-
   renderImage(image) {
     return image === undefined || image === null ? (
       <div>
@@ -57,10 +52,4 @@ MovieDetails.propTypes = {
   movieId: PropTypes.number,
   movieCast: PropTypes.object
 };
-const mapStateToProps = state => ({
-  movieCast: state.movieReducer.movieCast
-});
-export default connect(
-  mapStateToProps,
-  { fetchMovieCast }
-)(MovieDetails);
+export default MovieDetails;

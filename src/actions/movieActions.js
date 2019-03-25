@@ -5,8 +5,7 @@ import {
   MODIFY_PROPERTY_MOVIE,
   CHANGE_MAIN_CONTENT_VIEW,
   FETCH_MOVIE_DETAILS,
-  FETCH_MOVIE_LIST_FROM_SEARCH,
-  FETCH_MOVIE_DETAILS_CAST
+  FETCH_MOVIE_LIST_FROM_SEARCH
 } from "./types";
 
 import mainContent from "../static_data/mainContent";
@@ -77,25 +76,13 @@ export const fetchMovieListFromSearch = (url, query) => dispatch => {
 export const fetchMovieDetails = (url, movieId) => dispatch => {
   // ToDo: we already have this data on the client
   // I need to redesign the data structure
-  fetch(url + "/" + movieId)
+  fetch(url + "/" + movieId + "?embed[]=cast")
     .then(response => response.json())
     .then(data =>
       dispatch({
         type: FETCH_MOVIE_DETAILS,
         payload: {
           movieDetails: data
-        }
-      })
-    );
-};
-export const fetchMovieCast = (url, movieId) => dispatch => {
-  fetch(url + "/" + movieId + "/cast")
-    .then(response => response.json())
-    .then(data =>
-      dispatch({
-        type: FETCH_MOVIE_DETAILS_CAST,
-        payload: {
-          movieCast: data
         }
       })
     );

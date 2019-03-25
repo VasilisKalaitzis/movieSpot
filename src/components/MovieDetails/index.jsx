@@ -12,7 +12,7 @@ class MovieDetails extends Component {
   }
 
   renderCast() {
-    return <MovieCast url={this.props.url} movieId={this.props.movieId} />;
+    return this.props.movieDetails!==undefined? <MovieCast url={this.props.url} movieId={this.props.movieId} movieCast={this.props.movieDetails._embedded.cast}/>: null;
   }
   render() {
     return (
