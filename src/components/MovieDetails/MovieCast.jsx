@@ -30,7 +30,7 @@ class MovieDetails extends Component {
         {this.props.movieCast.map(actor => (
           <div className="actor-container">
             <div>{this.renderImage(actor.person.image)}</div>
-            <div>{actor.person.name}</div>
+            <div className="caligraphy">{actor.person.name}</div>
           </div>
         ))}
       </div>

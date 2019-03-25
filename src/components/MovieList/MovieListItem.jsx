@@ -104,6 +104,17 @@ class MovieListItem extends Component {
               __html: "<b>Status: </b>" + this.props.data.status
             }}
           />
+          {/* Schedule */}
+          {this.props.data.schedule!==undefined && this.props.data.schedule.days.length>0 ?
+          <div  className="content-details small-fonts">
+          <span>Every </span>
+                <span>{this.props.data.schedule.days.join(",")} </span>
+            <span> at {this.props.data.schedule.time}</span>
+            </div>
+            : null}
+
+
+        
         </Cell>
       </React.Fragment>
     );

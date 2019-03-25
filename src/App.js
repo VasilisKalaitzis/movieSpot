@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 
 import "./css/App.css";
 import "rc-pagination/assets/index.css";
+import "./css/fonts.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCog,
