@@ -101,4 +101,48 @@
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+
+.normal-fa-fonts {
+  margin: 5px;
+  font-size: 40px;
+}
+
+.faContainer .normal-fa-fonts {
+  margin: 0;
+}
+
+.faContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.heartUnder {
+  color: #ddd;
+  vertical-align: top;
+}
+
+.heartOver {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.faPercent {
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.hearColor {
+  color: #30e3ca;
+}
+
+.starColor {
+  color: #30e3ca;
+}
 /*# sourceMappingURL=Base.css.map */

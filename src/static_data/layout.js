@@ -17,7 +17,7 @@ const layout = {
         name: "github",
         text: "GitHub",
         action: "openLink",
-        value: "https://github.com/VasilisKalaitzis?tab=repositories",
+        value: "https://github.com/VasilisKalaitzis/movieSpot",
         target: "_blank"
       }
     ]

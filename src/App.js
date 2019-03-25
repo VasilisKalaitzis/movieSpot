@@ -5,6 +5,15 @@ import store from "./store";
 import Layout from "./components/Layout";
 
 import "./css/App.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faCog,
+  faUserCircle,
+  faHeart,
+  faStar
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faCog, faUserCircle, faHeart, faStar);
 
 class App extends Component {
   render() {

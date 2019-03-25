@@ -11,7 +11,7 @@ class MainContent extends Component {
   }
 
   renderMovieList() {
-    return <MovieList url={this.props.mainContent.data_url} />;
+    return <MovieList url={this.props.mainContent.data_url} itemPerPage="25" />;
   }
 
   render() {

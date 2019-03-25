@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import SidebarFrame from "./SidebarFrame";
 import { modifyLayout } from "../../actions/layoutActions";
 import { CSSTransition } from "react-transition-group";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Sidebar extends Component {
   changeActiveFrame(frameName = "") {
@@ -42,7 +43,11 @@ class Sidebar extends Component {
           className="sidebar-button"
           onClick={this.changeActiveFrame.bind(this, this.props.name)}
         >
-          <svg
+          <FontAwesomeIcon
+            className="normal-fa-fonts"
+            icon={this.props.info.icon}
+          />
+          {/* <svg
             aria-hidden="true"
             focusable="false"
             data-prefix="fas"
@@ -52,7 +57,7 @@ class Sidebar extends Component {
             className={"svg-inline--fa fa-w-16 fa-6x"}
           >
             <path fill="currentColor" d={this.props.info.svg_d} className="" />
-          </svg>
+          </svg> */}
         </div>
         {this.renderFrame()}
       </div>

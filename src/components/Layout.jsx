@@ -23,7 +23,7 @@ class Layout extends Component {
       },
       scrollableCell: {
         height: "auto",
-        "overflow-y": "auto"
+        overflowY: "auto"
       }
     };
 

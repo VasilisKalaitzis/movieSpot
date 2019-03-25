@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { Grid, Cell } from "styled-css-grid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class MovieListItem extends Component {
   render() {
     const styles = {
       mainCell: {},
       nameStyle: {
-        "font-size": "20px",
-        "font-weight": "bold",
+        fontSize: "20px",
+        fontWeight: "bold",
         height: "80px",
-        "border-bottom": "1px solid #ebebeb"
+        borderBottom: "1px solid #ebebeb"
       },
       detailStyle: {
-        "font-size": "14px"
+        fontSize: "14px"
       }
     };
     return (
@@ -20,14 +21,14 @@ class MovieListItem extends Component {
         className="movie-item"
         style={styles.gridStyle}
         gap="0px 0px"
-        columns={"2fr auto"}
-        rows={"1fr 3fr auto"}
+        columns={"1fr 1fr auto"}
+        rows={"2fr 1fr 4fr auto"}
       >
-        <Cell style={styles.mainCell} left={1} top={1} height={2}>
+        <Cell style={styles.mainCell} left={1} top={1} height={3}>
           {/* Here is the image */}
           <img src={this.props.data.image.medium} />
         </Cell>
-        <Cell className="sm-hide" style={styles.nameStyle} left={2} top={1}>
+        <Cell className="sm-hide" style={styles.nameStyle} left={3} top={1}>
           {/* Here is the name */}
           <a
             style={styles.link}
@@ -37,19 +38,45 @@ class MovieListItem extends Component {
             {this.props.data.name}
           </a>
         </Cell>
-        <Cell className="sm-hide" style={styles.detailStyle} left={2} top={2}>
-          {/* Here is the details */}
-          <div>
-            <span>{this.props.data.runtime} min</span>
+        <Cell className="sm-hide" style={styles.detailStyle} left={3} top={2}>
+          {/* Here is the duration */}
+          <div>{this.props.data.runtime} min</div>
+        </Cell>
+        <Cell className="sm-hide" style={styles.detailStyle} left={3} top={3}>
+          {/* Here are the genres */}
+          {this.props.data.genres.map(genre => (
+            <div key={this.props.data.id + genre}>{genre}</div>
+          ))}
+        </Cell>
+        <Cell style={styles.detailStyle} left={1} top={4}>
+          {/* Here is the add to favorite button*/}
+          <div className="faContainer">
+            <FontAwesomeIcon
+              className="normal-fa-fonts heartUnder"
+              icon="heart"
+            />
+            <FontAwesomeIcon
+              className="normal-fa-fonts heartOver hearColor"
+              icon="heart"
+            />
           </div>
         </Cell>
-        <Cell style={styles.detailStyle} left={1} top={3}>
-          {/* Here is the add to favorite button*/}
-        </Cell>
-        <Cell className="sm-hide" style={styles.cellStyle} left={2} top={3}>
+        <Cell className="sm-hide" style={styles.cellStyle} left={3} top={4}>
           {/* Here is the rating */}
-          <span>{this.props.data.rating.average}</span>
-          <span />
+
+          <div className="faContainer">
+            <FontAwesomeIcon className="normal-fa-fonts" icon="star" />
+            <span
+              className="faPercent"
+              style={{ width: this.props.data.rating.average * 10 + "%" }}
+            >
+              <FontAwesomeIcon
+                className="normal-fa-fonts starColor"
+                icon="star"
+              />
+            </span>
+          </div>
+          {/* <span>{this.props.data.rating.average}</span> */}
         </Cell>
       </Grid>
     );
