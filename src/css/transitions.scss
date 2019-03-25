@@ -2,6 +2,7 @@
 /* durations and timing functions.              */
 $opacityOut: 0;
 $opacityIn: 0.9;
+$opacityInFade: 1;
 $cubicBezier: 1, 0.5, 0.8, 1;
 $cubicBezierReverse: 0.8, 1, 1, 0.5;
 
@@ -12,7 +13,7 @@ $cubicBezierReverse: 0.8, 1, 1, 0.5;
   transform: scale(0.9);
 }
 .fade-enter-active {
-  opacity: $opacityIn;
+  opacity: $opacityInFade;
   transform: translateX(0);
   transition: opacity 300ms, transform 300ms;
 }
@@ -106,5 +107,26 @@ $cubicBezierReverse: 0.8, 1, 1, 0.5;
 .slide-right-exit-active {
   opacity: $opacityOut;
   transform: translateX(600px);
+  transition: opacity 500ms, transform 500ms;
+}
+
+/* slide down normally */
+.slide-down-enter {
+  opacity: $opacityOut;
+  transform: translateY(-300px);
+}
+.slide-down-enter-active {
+  opacity: $opacityIn;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+  // transition: all 1s ease;
+}
+.slide-down-exit {
+  opacity: $opacityIn;
+  transform: translateY(0);
+}
+.slide-down-exit-active {
+  opacity: $opacityOut;
+  transform: translateY(-300px);
   transition: opacity 500ms, transform 500ms;
 }

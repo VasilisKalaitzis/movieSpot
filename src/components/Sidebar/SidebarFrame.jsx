@@ -32,9 +32,10 @@ class SidebarFrame extends Component {
       //click inside of component, do nothing
       return;
     }
+    // click outside of component, update state in order to hide the frame
     let option = {
       action: "modifyLayout",
-      property: "active_frame",
+      property: "activeFrame",
       value: ""
     };
     this.takeAction(option);

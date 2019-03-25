@@ -47,7 +47,7 @@ class Layout extends Component {
               this.props.layout.transition_list,
               this.props.layout.transition
             )}
-            activeFrame={this.props.layout.active_frame}
+            activeFrame={this.props.layout.activeFrame}
             info={this.props.sidebars.sidebar_left}
           />
         </Cell>
@@ -60,7 +60,7 @@ class Layout extends Component {
               this.props.layout.transition_list,
               this.props.layout.transition
             )}
-            activeFrame={this.props.layout.active_frame}
+            activeFrame={this.props.layout.activeFrame}
             info={this.props.sidebars.sidebar_right}
           />
         </Cell>

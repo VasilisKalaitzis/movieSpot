@@ -4,7 +4,8 @@ import {
   UPDATE_MOVIE_LIST,
   MODIFY_PROPERTY_MOVIE,
   CHANGE_MAIN_CONTENT_VIEW,
-  FETCH_MOVIE_DETAILS
+  FETCH_MOVIE_DETAILS,
+  FETCH_MOVIE_LIST_FROM_SEARCH
 } from "./types";
 
 import mainContent from "../static_data/mainContent";
@@ -57,6 +58,19 @@ export const fetchMovieList = (url, localPage) => (dispatch, getState) => {
   //     error_caught: "Failed to retrieve movies"
   //   }
   // });
+};
+
+export const fetchMovieListFromSearch = (url, query) => dispatch => {
+  fetch(url + "?q=" + query)
+    .then(response => response.json())
+    .then(data =>
+      dispatch({
+        type: FETCH_MOVIE_LIST_FROM_SEARCH,
+        payload: {
+          movieList: data
+        }
+      })
+    );
 };
 
 export const fetchMovieDetails = (url, movieId) => dispatch => {

@@ -1,0 +1,68 @@
+.beau-container {
+  position: relative;
+  min-height: 60px;
+}
+
+.beau-searchbar-container {
+  width: 100%;
+  margin-bottom: 17px;
+  box-sizing: border-box;
+
+  .beau-searchbar-frame {
+    position: absolute;
+    left: 0%;
+    width: inherit;
+    top: 45px;
+    border-radius: 0 0 1em 1em;
+    background-color: #f4fefa;
+    box-shadow: 0px 15px 22px -7px #40514e;
+    z-index: 1;
+  }
+
+  .beau-searchbar {
+    z-index: 2;
+    height: 60px;
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    border-radius: 34px;
+    border: 1px;
+    background-color: #f4fefa;
+    box-shadow: 0px 15px 22px -7px #40514e;
+    .btn-search {
+      height: 60px;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      left: 0;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      -ms-flex-pack: center;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        fill: #ccc;
+        width: 30px;
+        height: 30px;
+        transition: all 0.2s ease-out, color 0.2s ease-out;
+      }
+    }
+    input {
+      padding-left: 15px;
+      height: 100%;
+      width: 100%;
+      background: transparent;
+      border: 0;
+      display: inline-block;
+      width: 100%;
+      font-size: 18px;
+      color: #666;
+      overflow: visible;
+      z-index: 1999;
+    }
+  }
+}

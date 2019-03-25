@@ -10,7 +10,7 @@ class Sidebar extends Component {
   changeActiveFrame(frameName = "") {
     // This function change the active frame of the Layout state
     //if not parameter is given, all frames will close
-    this.props.modifyLayout("active_frame", frameName);
+    this.props.modifyLayout("activeFrame", frameName);
   }
 
   renderFrame() {

@@ -11,10 +11,11 @@ import {
   faCog,
   faUserCircle,
   faHeart,
-  faStar
+  faStar,
+  faSearch
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faCog, faUserCircle, faHeart, faStar);
+library.add(faCog, faUserCircle, faHeart, faStar, faSearch);
 
 class App extends Component {
   render() {

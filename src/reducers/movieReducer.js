@@ -4,7 +4,8 @@ import {
   UPDATE_MOVIE_LIST,
   MODIFY_PROPERTY_MOVIE,
   CHANGE_MAIN_CONTENT_VIEW,
-  FETCH_MOVIE_DETAILS
+  FETCH_MOVIE_DETAILS,
+  FETCH_MOVIE_LIST_FROM_SEARCH
 } from "../actions/types";
 
 const initialState = {
@@ -35,6 +36,12 @@ export default function(state = initialState, action) {
             movies: action.payload.movies
           }
         }
+      };
+    case FETCH_MOVIE_LIST_FROM_SEARCH:
+      // update the searchMovieList
+      return {
+        ...state,
+        searchMovieList: action.payload.movieList
       };
     case FETCH_MOVIE_DETAILS:
       // update the existing cachedMovies

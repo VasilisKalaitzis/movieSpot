@@ -4,6 +4,7 @@ import { Grid, Cell } from "styled-css-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import { changeMainContentView } from "../../actions/movieActions";
+import imageAnavailable from "../../static_images/image_not_found.png";
 
 class MovieListItem extends Component {
   handleViewChange = (nextView, movieId) => {
@@ -14,9 +15,23 @@ class MovieListItem extends Component {
     return (
       <Cell left={1} top={2} height={3} width={2}>
         {this.props.data.image === undefined ||
-        this.props.data.image === null ? null : (
+        this.props.data.image === null ? (
+          <div>
+            <img
+              alt={imageAnavailable}
+              style={{ cursor: "pointer" }}
+              src={imageAnavailable}
+              onClick={this.handleViewChange.bind(
+                this,
+                "movieDetails",
+                this.props.data.id
+              )}
+            />
+            <div className="na-text">{this.props.data.name}</div>
+          </div>
+        ) : (
           <img
-            alt=""
+            alt="MovieImage"
             style={{ cursor: "pointer" }}
             src={this.props.data.image.medium}
             onClick={this.handleViewChange.bind(
@@ -110,7 +125,7 @@ class MovieListItem extends Component {
     };
     return (
       <React.Fragment>
-        <Cell style={styles.fontStyle} left={1} top={6}>
+        <Cell className="faFavorite" left={1} top={6}>
           {/* Here is the add to favorite button*/}
           <div className="faContainer">
             <FontAwesomeIcon
@@ -123,7 +138,7 @@ class MovieListItem extends Component {
             />
           </div>
         </Cell>
-        <Cell className="sm-hide" left={3} top={6}>
+        <Cell className="sm-hide faRating" left={3} top={6}>
           {/* Here is the rating */}
 
           <div className="faContainer">
@@ -163,7 +178,7 @@ class MovieListItem extends Component {
       <Grid
         className={"movie-item-" + this.props.scope}
         gap="0px 0px"
-        columns={"1fr auto auto"}
+        columns={"1fr 1fr auto"}
         rows={"auto 2fr 1fr 4fr auto auto"}
       >
         {/* simple:  Show only Images */}

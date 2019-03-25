@@ -23,7 +23,8 @@ const layout = {
     ]
   },
   assistant_visibility: 0,
-  assistant_roaming: 0
+  assistant_roaming: 0,
+  tips: null
 };
 
 export default layout;

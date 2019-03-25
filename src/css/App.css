@@ -7,6 +7,12 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+button:focus,
+li:focus,
+input:focus {
+  outline: 0;
+}
+
 .App-logo {
   -webkit-animation: App-logo-spin infinite 20s linear;
           animation: App-logo-spin infinite 20s linear;

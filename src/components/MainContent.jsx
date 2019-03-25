@@ -6,6 +6,7 @@ import MovieList from "./MovieList/index";
 import MovieDetails from "./MovieDetails/index";
 import Searchbar from "./Searchbar/index";
 import "../css/MainContent.css";
+import "../css/Searchbar.css";
 
 class MainContent extends Component {
   componentWillMount() {
@@ -30,7 +31,12 @@ class MainContent extends Component {
     );
   }
   renderSearchbar() {
-    return <Searchbar url={this.props.mainContent.search_url} />;
+    return (
+      <Searchbar
+        activeFrame={this.props.activeFrame}
+        url={this.props.mainContent.search_url}
+      />
+    );
   }
   render() {
     return (
@@ -63,7 +69,8 @@ class MainContent extends Component {
 
 const mapStateToProps = state => ({
   mainContent: state.movieReducer.mainContent,
-  movieId: state.movieReducer.movieId
+  movieId: state.movieReducer.movieId,
+  activeFrame: state.movieReducer.activeFrame
 });
 
 export default connect(
