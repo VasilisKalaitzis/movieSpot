@@ -5,7 +5,8 @@ import {
   MODIFY_PROPERTY_MOVIE,
   CHANGE_MAIN_CONTENT_VIEW,
   FETCH_MOVIE_DETAILS,
-  FETCH_MOVIE_LIST_FROM_SEARCH
+  FETCH_MOVIE_LIST_FROM_SEARCH,
+  FETCH_MOVIE_DETAILS_CAST
 } from "./types";
 
 import mainContent from "../static_data/mainContent";
@@ -83,6 +84,18 @@ export const fetchMovieDetails = (url, movieId) => dispatch => {
         type: FETCH_MOVIE_DETAILS,
         payload: {
           movieDetails: data
+        }
+      })
+    );
+};
+export const fetchMovieCast = (url, movieId) => dispatch => {
+  fetch(url + "/" + movieId + "/cast")
+    .then(response => response.json())
+    .then(data =>
+      dispatch({
+        type: FETCH_MOVIE_DETAILS_CAST,
+        payload: {
+          movieCast: data
         }
       })
     );

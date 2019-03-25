@@ -5,7 +5,8 @@ import {
   MODIFY_PROPERTY_MOVIE,
   CHANGE_MAIN_CONTENT_VIEW,
   FETCH_MOVIE_DETAILS,
-  FETCH_MOVIE_LIST_FROM_SEARCH
+  FETCH_MOVIE_LIST_FROM_SEARCH,
+  FETCH_MOVIE_DETAILS_CAST
 } from "../actions/types";
 
 const initialState = {
@@ -49,6 +50,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         movieDetails: action.payload.movieDetails
+      };
+    case FETCH_MOVIE_DETAILS_CAST:
+      return {
+        ...state,
+        movieCast: action.payload.movieCast
       };
     case UPDATE_MOVIE_LIST:
       // 1) from the requested localPage we find the serverPage
