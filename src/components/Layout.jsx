@@ -68,7 +68,7 @@ class Layout extends Component {
           {/* Here is the content */}
           <MainContent key="main_content" />
         </Cell>
-        <Cell left={2} top={2}>
+        <Cell left={2} top={2} className="abstract-container">
           <Assistant
             roaming={this.props.layout.assistant_roaming}
             visibility={this.props.layout.assistant_visibility}

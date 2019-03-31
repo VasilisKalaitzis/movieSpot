@@ -157,4 +157,8 @@
 .small-fonts {
   font-size: 14px;
 }
+
+.abstract-container {
+  pointer-events: none;
+}
 /*# sourceMappingURL=Base.css.map */
