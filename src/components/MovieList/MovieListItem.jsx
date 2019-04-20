@@ -4,7 +4,7 @@ import { Grid, Cell } from "styled-css-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import { changeMainContentView } from "../../actions/movieActions";
-import imageAnavailable from "../../static_images/image_not_found.png";
+import imageUnavailable from "../../static_images/image_not_found.png";
 
 class MovieListItem extends Component {
   handleViewChange = (nextView, movieId) => {
@@ -18,9 +18,9 @@ class MovieListItem extends Component {
         this.props.data.image === null ? (
           <div>
             <img
-              alt={imageAnavailable}
+              alt={imageUnavailable}
               style={{ cursor: "pointer" }}
-              src={imageAnavailable}
+              src={imageUnavailable}
               onClick={this.handleViewChange.bind(
                 this,
                 "movieDetails",
@@ -105,16 +105,14 @@ class MovieListItem extends Component {
             }}
           />
           {/* Schedule */}
-          {this.props.data.schedule!==undefined && this.props.data.schedule.days.length>0 ?
-          <div  className="content-details small-fonts">
-          <span>Every </span>
-                <span>{this.props.data.schedule.days.join(",")} </span>
-            <span> at {this.props.data.schedule.time}</span>
+          {this.props.data.schedule !== undefined &&
+          this.props.data.schedule.days.length > 0 ? (
+            <div className="content-details small-fonts">
+              <span>Every </span>
+              <span>{this.props.data.schedule.days.join(",")} </span>
+              <span> at {this.props.data.schedule.time}</span>
             </div>
-            : null}
-
-
-        
+          ) : null}
         </Cell>
       </React.Fragment>
     );
