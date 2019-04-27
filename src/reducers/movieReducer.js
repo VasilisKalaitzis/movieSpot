@@ -5,13 +5,15 @@ import {
   MODIFY_PROPERTY_MOVIE,
   CHANGE_MAIN_CONTENT_VIEW,
   FETCH_MOVIE_DETAILS,
-  FETCH_MOVIE_LIST_FROM_SEARCH
+  FETCH_MOVIE_LIST_FROM_SEARCH,
+  ADD_MOVIE_TO_LIST
 } from "../actions/types";
 
 const initialState = {
   mainContent: {},
   cachedMovies: {},
   movieList: [],
+  favoriteMovieList: [],
   currentPage: 0,
   movieDetails: {},
   movieId: null
@@ -90,6 +92,27 @@ export default function(state = initialState, action) {
         },
         movieId: action.payload.movieId
       };
+    case ADD_MOVIE_TO_LIST:
+      let movieList;
+      if (localStorage.getItem("moviespot-vk-" + action.payload.listName) != undefined) {
+        movieList = JSON.parse(localStorage.getItem("moviespot-vk-" + action.payload.listName));
+      } else {
+        movieList = {}
+      }
+
+      if (movieList[action.payload.movieItem.id] === undefined) {
+        // add the movie to the list
+        movieList[action.payload.movieItem.id] = action.payload.movieItem;
+      } else {
+        // remove the movie from the list
+        delete movieList[action.payload.movieItem.id];
+      }
+      
+      localStorage.setItem("moviespot-vk-" + action.payload.listName, JSON.stringify(movieList));
+      return {
+        ...state,
+        [action.payload.listName]: movieList
+      }
     default:
       return state;
   }
