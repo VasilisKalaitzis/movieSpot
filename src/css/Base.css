@@ -161,4 +161,8 @@
 .abstract-container {
   pointer-events: none;
 }
+
+.clickable {
+  cursor: pointer;
+}
 /*# sourceMappingURL=Base.css.map */
