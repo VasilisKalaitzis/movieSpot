@@ -1,3 +1,7 @@
+Online movie library created using React & Redux.
+
+Demo URL: http://movie-spot.bill.develop.c-137.live/?fbclid=IwAR390KWXfiNB972SewZjOPyXFqFPX54MsYajDOO-2rEo9p9cZJlizUkqT6Q
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
