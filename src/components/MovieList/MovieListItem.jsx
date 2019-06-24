@@ -3,13 +3,17 @@ import PropTypes from "prop-types";
 import { Grid, Cell } from "styled-css-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
-import { changeMainContentView } from "../../actions/movieActions";
+import { changeMainContentView, addMovieToList } from "../../actions/movieActions";
 import imageUnavailable from "../../static_images/image_not_found.png";
 
 class MovieListItem extends Component {
   handleViewChange = (nextView, movieId) => {
     this.props.changeMainContentView(nextView, movieId);
   };
+
+  addMovieToList = (listName, movie) => {
+    this.props.addMovieToList(listName,movie);
+  }
 
   renderImage() {
     return (
@@ -19,7 +23,7 @@ class MovieListItem extends Component {
           <div>
             <img
               alt={imageUnavailable}
-              style={{ cursor: "pointer" }}
+              className='clickable'
               src={imageUnavailable}
               onClick={this.handleViewChange.bind(
                 this,
@@ -32,7 +36,7 @@ class MovieListItem extends Component {
         ) : (
           <img
             alt="MovieImage"
-            style={{ cursor: "pointer" }}
+            className='clickable'
             src={this.props.data.image.medium}
             onClick={this.handleViewChange.bind(
               this,
@@ -51,9 +55,6 @@ class MovieListItem extends Component {
         fontWeight: "bold",
         height: "80px",
         borderBottom: "1px solid #ebebeb"
-      },
-      link: {
-        cursor: "pointer"
       }
     };
     return (
@@ -61,7 +62,7 @@ class MovieListItem extends Component {
         <Cell className="sm-hide" style={styles.nameStyle} left={3} top={2}>
           {/* Here is the name */}
           <span
-            style={styles.link}
+            className='clickable'
             href={this.props.data.officialSite}
             target="_blank"
             onClick={this.handleViewChange.bind(
@@ -118,25 +119,17 @@ class MovieListItem extends Component {
     );
   }
   renderFooter() {
-    const styles = {
-      nameStyle: {
-        fontSize: "20px",
-        fontWeight: "bold",
-        height: "80px",
-        borderBottom: "1px solid #ebebeb"
-      },
-      fontStyle: {
-        fontSize: "14px"
-      },
-      link: {
-        cursor: "pointer"
-      }
-    };
     return (
       <React.Fragment>
         <Cell className="faFavorite" left={1} top={6}>
           {/* Here is the add to favorite button*/}
-          <div className="faContainer">
+          <div className="faContainer clickable"
+            onClick={this.addMovieToList.bind(
+              this,
+              "favoriteMovieList",
+              this.props.data
+            )}
+          >
             <FontAwesomeIcon
               className="normal-fa-fonts heartUnder"
               icon="heart"
@@ -221,5 +214,5 @@ MovieListItem.propTypes = {
 
 export default connect(
   null,
-  { changeMainContentView }
+  { changeMainContentView, addMovieToList }
 )(MovieListItem);

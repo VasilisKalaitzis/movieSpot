@@ -23,7 +23,7 @@ class MovieDetails extends Component {
     return (
       <div className="container">
         {this.props.movieCast.map(actor => (
-          <div className="actor-container">
+          <div className="actor-container" key="actor.person.name">
             <div>{this.renderImage(actor.person.image)}</div>
             <div className="caligraphy">{actor.person.name}</div>
           </div>
@@ -50,6 +50,6 @@ MovieDetails.defaultProps = {
 
 MovieDetails.propTypes = {
   movieId: PropTypes.number,
-  movieCast: PropTypes.object
+  movieCast: PropTypes.array
 };
 export default MovieDetails;

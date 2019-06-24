@@ -5,7 +5,8 @@ import {
   MODIFY_PROPERTY_MOVIE,
   CHANGE_MAIN_CONTENT_VIEW,
   FETCH_MOVIE_DETAILS,
-  FETCH_MOVIE_LIST_FROM_SEARCH
+  FETCH_MOVIE_LIST_FROM_SEARCH,
+  ADD_MOVIE_TO_LIST
 } from "./types";
 
 import mainContent from "../static_data/mainContent";
@@ -129,4 +130,14 @@ export const changeMainContentView = (view, value) => dispatch => {
       break;
     }
   }
+};
+
+export const addMovieToList = (listName, movieItem) => dispatch => {
+  dispatch({
+    type: ADD_MOVIE_TO_LIST,
+    payload: {
+      movieItem: movieItem,
+      listName: listName
+    }
+  });
 };
