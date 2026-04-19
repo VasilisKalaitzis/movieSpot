@@ -9,13 +9,12 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",
     "gsap": "^2.1.2",
-    "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "rc-pagination": "^1.17.10",
     "react": "^16.8.5",
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^5.0.1",
     "react-transition-group": "^2.7.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
@@ -36,5 +35,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
 }
