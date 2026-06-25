@@ -6,10 +6,7 @@ import sidebars from "../static_data/sidebars";
 export const fetchLayoutData = () => dispatch => {
   dispatch({
     type: FETCH_LAYOUT_DATA,
-    payload: {
-      layout: layout,
-      sidebars: sidebars
-    }
+    payload: { layout, sidebars }
   });
 };
 

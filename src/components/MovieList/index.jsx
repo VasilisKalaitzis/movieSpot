@@ -12,13 +12,10 @@ import "../../css/Pagination.css";
 
 class MovieList extends Component {
   componentDidMount() {
-    this.fethMovies();
+    this.fetchMovies();
   }
 
-  componentDidUpdate() {}
-
-  fethMovies() {
-    //the action checks for cached data before pulling from the server
+  fetchMovies() {
     this.props.fetchMovieList(this.props.url, this.props.currentPage);
   }
   handlePageChange = page => {

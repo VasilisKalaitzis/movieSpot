@@ -47,17 +47,6 @@ class Sidebar extends Component {
             className="normal-fa-fonts"
             icon={this.props.info.icon}
           />
-          {/* <svg
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fas"
-            role="img"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            className={"svg-inline--fa fa-w-16 fa-6x"}
-          >
-            <path fill="currentColor" d={this.props.info.svg_d} className="" />
-          </svg> */}
         </div>
         {this.renderFrame()}
       </div>

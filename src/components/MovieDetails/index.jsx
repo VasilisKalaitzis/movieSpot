@@ -7,7 +7,7 @@ import MovieListItem from "../MovieList/MovieListItem";
 import MovieCast from "./MovieCast";
 
 class MovieDetails extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchMovieDetails(this.props.url, this.props.movieId);
   }
 

@@ -63,8 +63,6 @@ class MovieListItem extends Component {
           {/* Here is the name */}
           <span
             className='clickable'
-            href={this.props.data.officialSite}
-            target="_blank"
             onClick={this.handleViewChange.bind(
               this,
               "movieDetails",

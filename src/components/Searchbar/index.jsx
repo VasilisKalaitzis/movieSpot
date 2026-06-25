@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,65 +11,42 @@ import { CSSTransition } from "react-transition-group";
 import SearchbarFrame from "./SearchbarFrame";
 
 class Searchbar extends Component {
-  // ToDo: as I'm writting code, I notice that the functions bellow
-  // are us over and over again, I should defenitely assign them to
-  // a global helper file
   constructor(props) {
     super(props);
-
-    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.wrapperRef = createRef();
+    this.searchInputRef = createRef();
+    this.timer = null;
     this.handleClick = this.handleClick.bind(this);
     this.takeAction = this.takeAction.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.startSearch = this.startSearch.bind(this);
   }
-  componentWillMount() {
-    // Time to handle change of input
-    this.timer = null;
-  }
+
   componentDidMount() {
-    //Handle clicks outside of the sidebar
     document.addEventListener("mousedown", this.handleClick, false);
   }
 
   componentWillUnmount() {
-    //Handle clicks outside of the sidebar
     document.removeEventListener("mousedown", this.handleClick, false);
     clearTimeout(this.timer);
   }
 
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
   handleChange() {
     clearTimeout(this.timer);
     this.timer = setTimeout(this.startSearch, 1100);
   }
+
   startSearch() {
-    let query = this.refs.searchInput.value;
+    const query = this.searchInputRef.current.value;
     this.props.fetchMovieListFromSearch(this.props.url, query);
   }
 
-  handleClick = e => {
-    let option;
-    if (this.setWrapperRef.contains(e.target)) {
-      //click inside of component, do nothing
-      option = {
-        action: "modifyLayout",
-        property: "activeFrame",
-        value: this.props.name
-      };
-    } else {
-      // click outside of component, update state in order to hide the frame
-      option = {
-        action: "modifyLayout",
-        property: "activeFrame",
-        value: ""
-      };
-    }
-
+  handleClick(e) {
+    const option = this.wrapperRef.current && this.wrapperRef.current.contains(e.target)
+      ? { action: "modifyLayout", property: "activeFrame", value: this.props.name }
+      : { action: "modifyLayout", property: "activeFrame", value: "" };
     this.takeAction(option);
-  };
+  }
 
   takeAction(option) {
     switch (option.action) {
@@ -81,7 +58,6 @@ class Searchbar extends Component {
   }
 
   renderFrame() {
-    // Create the sidebarFrame only if it is active
     return (
       <CSSTransition
         in={
@@ -105,7 +81,7 @@ class Searchbar extends Component {
       <div className="beau-container">
         <div
           className="beau-searchbar-container"
-          ref={el => (this.setWrapperRef = el)}
+          ref={this.wrapperRef}
         >
           <div className="beau-searchbar">
             <button className="btn-search" type="button">
@@ -116,10 +92,10 @@ class Searchbar extends Component {
               />
             </button>
             <input
-              ref="searchInput"
+              ref={this.searchInputRef}
               type="text"
               placeholder="Movies"
-              onChange={e => this.handleChange(e)}
+              onChange={this.handleChange}
             />
           </div>
 
@@ -129,6 +105,7 @@ class Searchbar extends Component {
     );
   }
 }
+
 Searchbar.defaultProps = {
   url: "",
   name: "searchbar"

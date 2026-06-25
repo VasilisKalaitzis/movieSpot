@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -18,16 +18,14 @@ import {
 
 library.add(faCog, faUserCircle, faHeart, faStar, faSearch);
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <div className="App color-pallete1">
-          <Layout />
-        </div>
-      </Provider>
-    );
-  }
+function App() {
+  return (
+    <Provider store={store}>
+      <div className="App color-pallete1">
+        <Layout />
+      </div>
+    </Provider>
+  );
 }
 
 export default App;

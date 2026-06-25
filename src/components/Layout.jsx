@@ -9,7 +9,7 @@ import MainContent from "./MainContent";
 import Assistant from "./Assistant/index";
 
 class Layout extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchLayoutData();
   }
 

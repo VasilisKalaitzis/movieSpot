@@ -9,7 +9,7 @@ import "../css/MainContent.css";
 import "../css/Searchbar.css";
 
 class MainContent extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchMainContentData();
   }
 
@@ -50,14 +50,6 @@ class MainContent extends Component {
         {this.props.mainContent.current_view === "movieList"
           ? this.renderMovieList()
           : null}
-
-        {/* View for Favorites */}
-        {/* <div className="moviesList">
-          <div className="flexcontrainer-fill">
-            <div>movie1</div>
-            <div>movie2</div>
-          </div>
-        </div> */}
 
         {this.props.mainContent.current_view === "movieDetails"
           ? this.renderMovieDetails()

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { modifyLayout } from "../../actions/layoutActions";
@@ -8,38 +8,29 @@ import "../../css/Sidebar.css";
 class SidebarFrame extends Component {
   constructor(props) {
     super(props);
-
-    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.wrapperRef = createRef();
     this.handleClick = this.handleClick.bind(this);
     this.takeAction = this.takeAction.bind(this);
   }
+
   componentDidMount() {
-    //Handle clicks outside of the sidebar
     document.addEventListener("mousedown", this.handleClick, false);
   }
 
   componentWillUnmount() {
-    //Handle clicks outside of the sidebar
     document.removeEventListener("mousedown", this.handleClick, false);
   }
 
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
-
-  handleClick = e => {
-    if (this.setWrapperRef.contains(e.target)) {
-      //click inside of component, do nothing
+  handleClick(e) {
+    if (this.wrapperRef.current && this.wrapperRef.current.contains(e.target)) {
       return;
     }
-    // click outside of component, update state in order to hide the frame
-    let option = {
+    this.takeAction({
       action: "modifyLayout",
       property: "activeFrame",
       value: ""
-    };
-    this.takeAction(option);
-  };
+    });
+  }
 
   takeAction(option) {
     switch (option.action) {
@@ -49,9 +40,8 @@ class SidebarFrame extends Component {
       default:
     }
   }
-  render() {
-    // const styles = {};
 
+  render() {
     return (
       <div
         className={
@@ -60,7 +50,7 @@ class SidebarFrame extends Component {
           " " +
           this.props.colorPallete
         }
-        ref={el => (this.setWrapperRef = el)}
+        ref={this.wrapperRef}
       >
         <div className="sidebar-frame-header" />
         <div className="sidebar-frame-content">

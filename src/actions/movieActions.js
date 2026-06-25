@@ -14,9 +14,7 @@ import mainContent from "../static_data/mainContent";
 export const fetchMainContentData = () => dispatch => {
   dispatch({
     type: FETCH_MAIN_CONTENT_DATA,
-    payload: {
-      mainContent: mainContent
-    }
+    payload: { mainContent }
   });
 };
 
@@ -92,10 +90,7 @@ export const fetchMovieDetails = (url, movieId) => dispatch => {
 export const modifyPropertyMovie = (property, value) => dispatch => {
   dispatch({
     type: MODIFY_PROPERTY_MOVIE,
-    payload: {
-      property: property,
-      value: value
-    }
+    payload: { property, value }
   });
 };
 

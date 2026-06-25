@@ -94,7 +94,7 @@ export default function(state = initialState, action) {
       };
     case ADD_MOVIE_TO_LIST:
       let movieList;
-      if (localStorage.getItem("moviespot-vk-" + action.payload.listName) != undefined) {
+      if (localStorage.getItem("moviespot-vk-" + action.payload.listName) !== null) {
         movieList = JSON.parse(localStorage.getItem("moviespot-vk-" + action.payload.listName));
       } else {
         movieList = {}
